@@ -6998,3 +6998,18 @@ a.result.search-result-fix,
 .cur-text {
   cursor: url("https://unpkg.com/volantis-static@0.0.1654736714924/media/cursor/text.png"), text !important;
 }
+#l_main .post,
+#l_side .widget {
+  opacity: 0.8;
+  -webkit-opacity: 0.8;
+  -moz-opacity: 0.8;
+}
+#post.post,
+#docs.post {
+  opacity: 1;
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+}
+.parallax-mirror {
+  filter: brightness(0.5);
+}
