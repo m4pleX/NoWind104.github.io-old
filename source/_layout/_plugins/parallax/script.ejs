@@ -1,0 +1,54 @@
+<script>
+const img_config = {
+    min: 1,
+    max: 100,
+    root: "https://cdn.example.com/img/"
+}
+let IntervalParallax = null;
+
+function parallax() {
+    <% if (theme.plugins.parallax.position == "fixed") { %>
+    let ParallaxWindow = document.querySelector("html");
+    <% } else{ %>
+    let ParallaxWindow = document.querySelector("#parallax-window");
+    <% } %>
+    Parallax.window = ParallaxWindow;
+    Parallax.options.fade = <%- theme.plugins.parallax.fade %>;
+    Parallax.cache = 1;
+    next_parallax();
+    Parallax.init();
+    IntervalParallax = setInterval(function () {
+        if(!document.hidden){
+            next_parallax();
+        }
+    }, '<%- theme.plugins.parallax.duration %>');
+}
+
+function next_parallax() {
+    if (typeof Parallax == "undefined") {
+        return
+    }
+    <% if (theme.plugins.parallax.position != "fixed") { %>
+    if (!document.querySelector("#full") && !document.querySelector("#half")) {
+        return
+    }
+    <% } %>
+    // 生成随机图片地址
+    let index = Math.floor(Math.random() * (img_config.max - img_config.min + 1) + img_config.min);
+    let img = `${img_config.root}${index}.jpg`;
+    Parallax.options.src = img;
+    Parallax.start();
+}
+
+var runningOnBrowser = typeof window !== "undefined";
+var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+if (!isBot) {
+    volantis.js('<%- theme.cdn.map.js.parallax %>').then(() => {
+        parallax()
+    })
+    volantis.pjax.send(() => {
+        clearInterval(IntervalParallax)
+    }, "clearIntervalParallax");
+    volantis.pjax.push(parallax);
+}
+</script>

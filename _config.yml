@@ -104,3 +104,7 @@ theme: volantis
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
+
+# layout文件替换
+theme_plus:
+  custom_path: source/_layout

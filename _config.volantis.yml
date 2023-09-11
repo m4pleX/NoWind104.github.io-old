@@ -87,7 +87,7 @@ navbar:
     icon:
     title:
   menu:
-    - name: 博客1
+    - name: 博客
       icon: fa-solid fa-rss
       url: /
     - name: 分类
@@ -117,11 +117,11 @@ cover:
     home: true
     archive: true
     others: false # can be written in front-matter 'cover: true'
-  background: https://bing.ioliu.cn/v1/rand?w=1920&h=1200
+  background: https://api.dearxuan.com/image
   # background: https://bing.ioliu.cn/v1/rand?w=1920&h=1200
   logo: # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-Cover@3x.png
-  title: 'Volantis'
-  subtitle: ''
+  title:  '<font><span>Hello</span> <span>World</span></font>'
+  subtitle: <div id="binft"></div>
   search: A Wonderful Theme for Hexo # search bar placeholder
   features:
     - name: 文档
@@ -506,6 +506,7 @@ sidebar:
       title:
       subtitle:
       jinrishici: true # Poetry Today. You can set a string, and it will be displayed when loading fails.
+      customword: 道可道,非常道;名可名,非常名.
       social:
         - icon: fa-solid fa-rss
           url: /atom.xml
