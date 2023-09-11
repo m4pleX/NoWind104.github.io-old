@@ -10,6 +10,7 @@ keywords:
 author: nowind104
 language: zh-CN
 timezone: 'Asia/Shanghai'
+favicon: https://gcore.jsdelivr.net/gh/xaoxuu/assets@master/favicon/favicon.ico
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
